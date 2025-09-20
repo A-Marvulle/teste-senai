@@ -3,13 +3,13 @@ import menuItens from "../../assets/menu.json"
 
 function Menu() {
     return (
-        <nav>
+        <>
             {menuItens.map((item, index) => (
-                <NavLink key={index} to={`/${item.url}`}>
+                <NavLink className='nav-link' key={index} to={`/${item.url}`} title={item.nome}>
                     {item.nome}
                 </NavLink>
             ))}
-        </nav>
+        </>
     )
 }
 

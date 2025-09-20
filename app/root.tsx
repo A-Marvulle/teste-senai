@@ -43,7 +43,9 @@ export default function App() {
   return (
     <>
       <header>
-        <Menu />
+        <nav>
+          <Menu />
+        </nav>
       </header>
       <main>
         {location.pathname != '/' && <Breadcrumb />}
