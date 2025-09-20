@@ -7,14 +7,19 @@ import {
   ScrollRestoration,
 } from "react-router";
 
+// ! ROTAS
 import type { Route } from "./+types/root";
-import { NavLink } from "react-router";
 import { useLocation } from 'react-router'
+
+// ? ESTILO
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./app.css";
-import menuItens from "./assets/menu.json"
+
+// ? COMPONENTES
+import Menu from "app/components/menu/menu";
 import Footer from "app/components/footer/footer"
 import Breadcrumb from 'app/components/bread/bread';
+
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-br">
@@ -38,14 +43,7 @@ export default function App() {
   return (
     <>
       <header>
-        <nav>
-
-          {menuItens.map((item, index) => (
-            <NavLink key={index} to={`/${item.url}`}>
-              {item.nome}
-            </NavLink>
-          ))}
-        </nav>
+        <Menu />
       </header>
       <main>
         {location.pathname != '/' && <Breadcrumb />}

@@ -1,7 +1,8 @@
+import Menu from "app/components/menu/menu";
 function Footer() {
   return (
     <footer>
-       <p>Footer</p>
+       <Menu />
     </footer>
   )
 }
