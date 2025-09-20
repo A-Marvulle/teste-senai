@@ -1,0 +1,30 @@
+:root {
+    --primary-color: #1E3A8A;
+    --primary-color-dark: #172E71;
+    --primary-color-light: #3461E5;
+    --secondary-color: #D1D5DB;
+    --secondary-color-dark: #C7CBD1;
+    --secondary-color-light: #EAEEF4;
+    --highlight-color: #34D399;
+}
+/* ? GERAIS */
+*{margin: 0;padding: 0;}
+*,*::before,*::after {box-sizing: inherit;}
+body {background: #1A1A1A;}
+html{box-sizing: border-box;scroll-behavior: smooth;}
+h1, h2, h3, h4 {color: var(--highlight-color);}
+p {color: var(--secondary-color);}
+a {text-decoration: none;}
+/* ? FIM GERAIS */
+
+/* ? HOME */
+/* * SOBRE O APP */
+.img__ceo {position: relative;}
+.img__ceo img {max-height: 450px; object-fit: cover; border-radius: 16px; width: 100%;}
+.img__ceo figcaption {position: absolute; bottom: 0; left: 0; background: rgba(255, 255, 255, 0.8); width: 100%; padding: 16px; border-radius: 0 0 16px 16px;}
+
+/* * FONTES */
+.fonte a {color: var(--highlight-color); transition: .3s;}
+.fonte a:hover {color: var(--primary-color-light);}
+
+/* ? FIM HOME */

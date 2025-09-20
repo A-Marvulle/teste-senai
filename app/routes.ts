@@ -5,5 +5,4 @@ export default [
     route("sobre","routes/sobre.tsx"),
     route("quiz","routes/quiz.tsx"),
     route("contato","routes/contato.tsx"),
-    route("404","routes/404.tsx"),
 ] satisfies RouteConfig;

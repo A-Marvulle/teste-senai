@@ -8,25 +8,14 @@ import {
 } from "react-router";
 
 import type { Route } from "./+types/root";
-import "./app.css";
 import { NavLink } from "react-router";
-
-export const links: Route.LinksFunction = () => [
-  { rel: "preconnect", href: "https://fonts.googleapis.com" },
-  {
-    rel: "preconnect",
-    href: "https://fonts.gstatic.com",
-    crossOrigin: "anonymous",
-  },
-  {
-    rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
-  },
-];
+import 'bootstrap/dist/css/bootstrap.min.css';
+import "./app.css";
+import Footer from "app/components/footer/footer"
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="pt-br">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -45,13 +34,18 @@ export function Layout({ children }: { children: React.ReactNode }) {
 export default function App() {
   return (
     <>
-    <nav>
-      <NavLink to="/" >Home</NavLink>
-      <NavLink to="/sobre">Sobre</NavLink>
-      <NavLink to="/quiz">Quiz</NavLink>
-      <NavLink to="/contato">Contato</NavLink>
-    </nav>
-    <Outlet />
+      <header>
+        <nav>
+          <NavLink to="/" >Home</NavLink>
+          <NavLink to="/sobre">Sobre</NavLink>
+          <NavLink to="/quiz">Quiz</NavLink>
+          <NavLink to="/contato">Contato</NavLink>
+        </nav>
+      </header>
+      <main>
+        <Outlet />
+      </main>
+      <Footer />
     </>
   );
 }
