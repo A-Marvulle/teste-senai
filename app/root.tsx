@@ -9,8 +9,10 @@ import {
 
 import type { Route } from "./+types/root";
 import { NavLink } from "react-router";
+import { useLocation } from 'react-router'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./app.css";
+import menuItens from "./assets/menu.json"
 import Footer from "app/components/footer/footer"
 import Breadcrumb from 'app/components/bread/bread';
 export function Layout({ children }: { children: React.ReactNode }) {
@@ -32,17 +34,21 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
+  let location = useLocation();
   return (
     <>
       <header>
         <nav>
-          <NavLink to="/" >Home</NavLink>
-          <NavLink to="/sobre">Sobre</NavLink>
-          <NavLink to="/quiz">Quiz</NavLink>
-          <NavLink to="/contato">Contato</NavLink>
+
+          {menuItens.map((item, index) => (
+            <NavLink key={index} to={`/${item.url}`}>
+              {item.nome}
+            </NavLink>
+          ))}
         </nav>
       </header>
       <main>
+        {location.pathname != '/' && <Breadcrumb />}
         <Outlet />
       </main>
       <Footer />
