@@ -43,7 +43,6 @@ export default function App() {
         </nav>
       </header>
       <main>
-        {location.pathname !== '/' && <Breadcrumb />}
         <Outlet />
       </main>
       <Footer />

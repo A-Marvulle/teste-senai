@@ -19,6 +19,7 @@ a {text-decoration: none;}
 .btn__primary {background: var(--primary-color); color: #fff;}
 .btn__primary:hover, .btn__primary:focus, .btn__primary:active {background: var(--primary-color-dark); color: #fff;}
 .btn__primary:focus-visible {box-shadow: 0 0 0 0.25rem rgba(23, 46, 113, .5);}
+.btn__primary:is(:disabled) {background: rgba(30, 58, 138, .5);}
 /* ? FIM GERAIS */
 
 /* ? HOME */
@@ -38,5 +39,5 @@ a {text-decoration: none;}
 .stepper__playlist .MuiStepLabel-label {color: #f0f0f0;}
 .stepper__playlist .MuiStepLabel-label.Mui-active {color: var(--highlight-color);}
 .stepper__playlist .MuiStepLabel-label.Mui-completed {color: var(--primary-color-light); text-decoration: line-through;}
-button.btn:is(:disabled) {display: none;}
+button.btn:disabled:not(.btn__primary-modal) {display: none;}
 /* ? FIM SOBRE*/
