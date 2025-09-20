@@ -1,12 +1,12 @@
 import Card from "../components/card/card";
 import ceo from '../assets/ceo.webp';
-export default function Home() {
   const curiosidades = [
     { title: 'Uso de IA', text: ' O programa é um dos softwares que lida melhor com o algoritmo de recomendação, que ajuda o usuário a descobrir novas músicas ou acompanhar o trabalho do seu artista favorito.' },
     { title: 'Pirataria', text: 'Transferências de música por sites de downloads caíram significativamente após a chegada dos serviços de streaming de música.' },
     { title: '25% Sem Play', text: 'Estima-se que cerca de 25% das faixas hospedadas no serviço nunca foram reproduzidas por terceiros.' },
     { title: 'Produtos Físicos', text: 'Spotify é um programa criado para rodar 100% na nuvem e totalmente digitalizado, sem qualquer dependência de hardware.' },
   ]
+export default function Home() {
   return (
     <>
       {/* Curiosidades */}

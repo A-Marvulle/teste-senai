@@ -12,7 +12,7 @@ import { NavLink } from "react-router";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./app.css";
 import Footer from "app/components/footer/footer"
-
+import Breadcrumb from 'app/components/bread/bread';
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-br">
@@ -43,6 +43,7 @@ export default function App() {
         </nav>
       </header>
       <main>
+        {location.pathname !== '/' && <Breadcrumb />}
         <Outlet />
       </main>
       <Footer />
