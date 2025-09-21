@@ -10,8 +10,8 @@ function Banner() {
             <div className="container h-100 text-center">
                 <div className="d-flex justify-content-center align-items-center h-100 w-100">
                     <h2 className="fs-1 text-white">
-                        "A música é celeste, de natureza divina e de tal beleza que encanta a alma e a eleva acima da sua condição."
-                        <span className="d-block fs-5">Aristóteles</span>
+                        "Como é que um homem sem as virtudes que lhe são próprias pode cultivar a música ?"
+                        <span className="d-block fs-5">Confúcio</span>
                     </h2>
                 </div>
             </div>
