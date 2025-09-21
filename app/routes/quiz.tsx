@@ -51,7 +51,7 @@ export default function Quiz() {
         const handleBeforeUnload = (e: BeforeUnloadEvent) => {
             if (open && !finished) {
                 e.preventDefault();
-                e.returnValue = '';
+                return '';
             }
         };
 

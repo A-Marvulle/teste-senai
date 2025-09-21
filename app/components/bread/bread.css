@@ -1,0 +1,5 @@
+.bread__default {text-align: center; padding: 24px 0; width: 100%; text-transform: uppercase; background: var(--banner); background-repeat: no-repeat; background-position: center; background-size: cover; margin-bottom: 16px;}
+.bread__default li, .bread__default a, .bread__default h1 {color: var(--secondary-color);}
+.bread__default ol {list-style: none; margin: 0; padding: 0;}
+.bread__default a:hover, .bread__default a:focus, .bread__default a:active {color: var(--primary-color);}
+.bread {display: flex; justify-content: center; align-items: center; gap: 0px }
