@@ -40,5 +40,6 @@ a {text-decoration: none;}
 .stepper__playlist .MuiStepLabel-label {color: #f0f0f0;}
 .stepper__playlist .MuiStepLabel-label.Mui-active {color: var(--highlight-color);}
 .stepper__playlist .MuiStepLabel-label.Mui-completed {color: var(--primary-color-light); text-decoration: line-through;}
+.img__passo img{height: 100%; width: 200px;}
 button.btn:disabled:not(.btn__primary-modal) {display: none;}
 /* ? FIM SOBRE*/

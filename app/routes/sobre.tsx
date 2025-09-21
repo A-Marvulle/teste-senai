@@ -6,6 +6,7 @@ import StepLabel from '@mui/material/StepLabel';
 import StepContent from '@mui/material/StepContent';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
+import { NavLink } from "react-router";
 
 // * IMAGENS DO PASSO A PASSO
 import passo01 from "../assets/passos/passo-01.webp";
@@ -97,7 +98,9 @@ export default function Sobre() {
                     Sobre o Projeto
                 </h2>
                 <p className='text-center'>Esse Projeto tem como objetivo ensinar como criar playslits no <strong>Spotify</strong> e testar seus conhecimentos sobre o conteúdo apresentado</p>
+                <p className='text-center'>Abaixo veja o Passo a Passo sobre como montar uma playist</p>
             </section>
+
             {/* PASSO A PASSO */}
             <section className='container'>
                 <h2 className="fs-2">Passo A Passo</h2>
@@ -116,19 +119,19 @@ export default function Sobre() {
                             </StepLabel>
                             <StepContent>
                                 <Typography>{step.description}</Typography>
-                                <figure className="">
+                                <figure className="img__passo">
                                     <img src={step.imgContent[0].image} alt={step.imgContent[0].caption} title={step.imgContent[0].caption} />
                                     <figcaption>{step.imgContent[0].caption}</figcaption>
                                 </figure>
                                 <Box sx={{ mb: 2 }}>
                                     <button
-                                        className='btn btn__primary mx-3'
+                                        className='btn btn__primary m-3'
                                         onClick={handleNext}
                                     >
                                         {index === steps.length - 1 ? 'Finalizar' : 'Continuar'}
                                     </button>
                                     <button
-                                        className='btn btn-outline-light mx-3'
+                                        className='btn btn-outline-light m-3'
                                         disabled={index === 0}
                                         onClick={handleBack}
                                     >
@@ -146,6 +149,9 @@ export default function Sobre() {
                             Recomeçar
                         </button>
                         <p>Imagens Retiradas de um Redmi Note 13, na versão do Spotify 9.0.80.1343 em Setembro de 2025</p>
+                        <NavLink className='btn btn__primary my-3' to='/quiz' title='Quiz'>
+                           Preparado para jogar?
+                        </NavLink>
                     </Paper>
                 )}
             </section>
