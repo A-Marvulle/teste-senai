@@ -13,15 +13,15 @@ const perguntas: Perguntas[] = [
     },
     {
         type: 'multipla',
-        question: 'Quais conteúdos você pode subir no Spotify?',
-        options: ['Músicas', 'Podcasts', 'Videos', 'Audiobooks', 'Filmes'],
-        correct: ['Músicas', 'Podcasts', 'Audiobooks'],
+        question: 'linguagens de programação utilizadas pelo aplicativo?',
+        options: ['Java', 'Python', 'C', 'C++', 'PHP'],
+        correct: ['Python', 'Java', 'C', 'C++'],
     },
     {
         type: 'combobox',
-        question: 'Qual a posição correta do passo?',
-        options: ['1', '2', '3', '4', '5', '6'],
-        correct: '3',
+        question: 'Qual tipo de serviço é o Spotify?',
+        options: ['Premium', 'Freemium', 'Free'],
+        correct: 'Freemium',
     },
 ];
 
@@ -47,7 +47,6 @@ export default function Quiz() {
     const [attempts, setAttempts] = useState(0);
     const [feedback, setFeedback] = useState<string | null>(null);
 
-    // Proteção ao recarregar ou sair da aba
     useEffect(() => {
         const handleBeforeUnload = (e: BeforeUnloadEvent) => {
             if (open && !finished) {

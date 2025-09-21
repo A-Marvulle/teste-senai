@@ -21,7 +21,7 @@ function Topo() {
     return (
         <Box sx={{ flexGrow: 1 }} className='topo' >
             <AppBar position="fixed">
-                <Toolbar className='bg-primary-color    '>
+                <Toolbar className='bg-primary-color'>
                     {isMobile && (
                         <IconButton
                             color="inherit"

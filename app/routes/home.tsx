@@ -24,7 +24,11 @@ export default function Home() {
         <div className="d-flex flex-column flex-lg-row-reverse">
           <div className="col-12 col-lg-6 p-3">
             <h2 className="fs-2 text-center text-lg-start">Sobre o Spotify</h2>
-            <p><strong>Spotify</strong> é um serviço de streaming de música, podcast e vídeo que foi lançado oficialmente em 23 de abril de 2006. É o serviço de streaming de música mais popular e usado do mundo. Ele é desenvolvido pela startup <strong>Spotify</strong> AB em Estocolmo, na Suécia. Ele fornece conteúdo protegido de conteúdo provido de restrição de gestão de direitos digitais de gravadoras e empresas de mídia. O <strong>Spotify</strong> é um serviço freemium; com recursos básicos sendo gratuitos com propagandas ou limitações, enquanto recursos adicionais, como qualidade de transmissão aprimorada e downloads de música, são oferecidos para assinaturas pagas.</p>
+            <p><strong>Spotify</strong> é um serviço de streaming de música, podcast e vídeo que foi lançado oficialmente em 23 de abril de 2006. É o serviço de streaming de música mais popular e usado do mundo. Ele é desenvolvido pela startup <strong>Spotify</strong> AB em Estocolmo, na Suécia. </p>
+            
+            <p>Ele fornece conteúdo protegido de conteúdo provido de restrição de gestão de direitos digitais de gravadoras e empresas de mídia. O <strong>Spotify</strong> é um serviço freemium; com recursos básicos sendo gratuitos com propagandas ou limitações, enquanto recursos adicionais, como qualidade de transmissão aprimorada e downloads de música, são oferecidos para assinaturas pagas.</p>
+
+            <p>As linguagens de programação utilizadas pelo aplicativo são Python, Java, C e C++.</p>
           </div>
           <div className="col-12 col-lg-6 p-3">
             <figure className="img__ceo">
