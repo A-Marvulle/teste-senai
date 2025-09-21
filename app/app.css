@@ -20,6 +20,7 @@ a {text-decoration: none;}
 .btn__primary:hover, .btn__primary:focus, .btn__primary:active {background: var(--primary-color-dark); color: #fff;}
 .btn__primary:focus-visible {box-shadow: 0 0 0 0.25rem rgba(23, 46, 113, .5);}
 .btn__primary:is(:disabled) {background: rgba(30, 58, 138, .5);}
+.bg-primary-color {background: var(--primary-color);}
 /* ? FIM GERAIS */
 
 /* ? HOME */

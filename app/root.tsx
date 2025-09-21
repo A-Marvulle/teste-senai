@@ -16,7 +16,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./app.css";
 
 // ? COMPONENTES
-import Menu from "app/components/menu/menu";
+import Topo from "app/components/topo/topo";
 import Footer from "app/components/footer/footer"
 import Breadcrumb from 'app/components/bread/bread';
 
@@ -42,11 +42,7 @@ export default function App() {
   let location = useLocation();
   return (
     <>
-      <header>
-        <nav>
-          <Menu />
-        </nav>
-      </header>
+      <Topo />
       <main>
         {location.pathname != '/' && <Breadcrumb />}
         <Outlet />

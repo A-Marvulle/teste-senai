@@ -1,0 +1,10 @@
+header nav {display: flex; flex-direction: row; justify-content: center; align-items: center; gap: 24px; width: 100%;}
+.menu .nav-link {color: #fff; text-transform: uppercase; letter-spacing: 1.6px; padding: 8px 16px;}
+
+@media (min-width: 992px) {
+    .menu .nav-link::after{content: ''; width: 0; height: 2px; background: #fff; transition: .3s; display: block;}
+    .menu .nav-link.active::after, .menu .nav-link:hover::after, .menu .nav-link:focus::after, .menu .nav-link:active::after{width: 100%;}
+}
+@media (max-width: 768px) {
+    .menu .nav-link.active, .menu .nav-link:hover, .menu .nav-link:focus, .menu .nav-link:active{color: var(--highlight-color);}
+}
