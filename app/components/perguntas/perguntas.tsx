@@ -3,17 +3,19 @@ import type { Perguntas } from '../../types/questions.types';
 import "./perguntas.css";
 type Props = {
   question: Perguntas;
-  onAnswer: (correct: boolean, userAnswer: string | string[] | null) => void; // mudou aqui
+  onAnswer: (correct: boolean, userAnswer: string | string[] | null) => void; 
+  disabled: boolean;
 };
 
-export default function QuestionCard({ question, onAnswer }: Props) {
+export default function QuestionCard({ question, onAnswer, disabled }: Props) {
   const [selected, setSelected] = useState<string | string[] | null>(null);
 
   function handleChange(value: string) {
-    setSelected(value);
+    if (!disabled) setSelected(value);
   }
 
   function handleMultipleChange(option: string) {
+    if (disabled) return;
     if (!Array.isArray(selected)) {
       setSelected([option]);
       return;
@@ -46,6 +48,8 @@ export default function QuestionCard({ question, onAnswer }: Props) {
   return (
     <div>
       <h3>{question.question}</h3>
+
+      {/* UNICA */}
       {question.type === 'unica' &&
         question.options.map(opt => (
           <label key={opt} style={{ display: 'block', margin: '4px 0' }}>
@@ -54,12 +58,14 @@ export default function QuestionCard({ question, onAnswer }: Props) {
               name="unica"
               value={opt}
               checked={selected === opt}
+              disabled={disabled}
               onChange={() => handleChange(opt)}
             />
             {opt}
           </label>
         ))}
 
+      {/* MULTIPLA */}
       {question.type === 'multipla' &&
         question.options.map(opt => (
           <label key={opt} style={{ display: 'block', margin: '4px 0' }}>
@@ -68,16 +74,19 @@ export default function QuestionCard({ question, onAnswer }: Props) {
               name="multipla"
               value={opt}
               checked={Array.isArray(selected) && selected.includes(opt)}
+              disabled={disabled}
               onChange={() => handleMultipleChange(opt)}
             />
             {opt}
           </label>
         ))}
 
+      {/* COMBOBOX */}
       {question.type === 'combobox' && (
         <select
           value={typeof selected === 'string' ? selected : ''}
           onChange={e => handleChange(e.target.value)}
+          disabled={disabled}
         >
           <option value="">Selecione</option>
           {question.options.map(opt => (
@@ -88,15 +97,17 @@ export default function QuestionCard({ question, onAnswer }: Props) {
         </select>
       )}
 
+      {/* BOTÃO DE RESPOSTA */}
       <button
         onClick={checkAnswer}
         disabled={
-          !selected || (Array.isArray(selected) && selected.length === 0)
+          disabled || !selected || (Array.isArray(selected) && selected.length === 0)
         }
-        className='my-3 btn btn__primary btn__primary-modal'
+        className="my-3 btn btn__primary btn__primary-modal d-block"
       >
         Responder
       </button>
     </div>
   );
 }
+

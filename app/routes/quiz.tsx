@@ -3,6 +3,7 @@ import QuestionCard from '../components/perguntas/perguntas';
 import type { Perguntas } from '../types/questions.types';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
+import LinearProgress from '@mui/material/LinearProgress';
 
 const perguntas: Perguntas[] = [
     {
@@ -13,7 +14,7 @@ const perguntas: Perguntas[] = [
     },
     {
         type: 'multipla',
-        question: 'linguagens de programação utilizadas pelo aplicativo?',
+        question: 'Quais as lingaugens de programação utilizadas pelo aplicativo?',
         options: ['Java', 'Python', 'C', 'C++', 'PHP'],
         correct: ['Python', 'Java', 'C', 'C++'],
     },
@@ -27,18 +28,6 @@ const perguntas: Perguntas[] = [
 
 const MAX_ATTEMPTS = 3;
 
-const style = {
-    position: 'absolute' as const,
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 420,
-    bgcolor: 'background.paper',
-    borderRadius: '8px',
-    boxShadow: 24,
-    p: 4,
-};
-
 export default function Quiz() {
     const [index, setIndex] = useState(0);
     const [score, setScore] = useState(0);
@@ -46,6 +35,9 @@ export default function Quiz() {
     const [open, setOpen] = useState(false);
     const [attempts, setAttempts] = useState(0);
     const [feedback, setFeedback] = useState<string | null>(null);
+    const [locked, setLocked] = useState(false);
+    const [redirectTimer, setRedirectTimer] = useState(0);
+    const [maxRedirectTime, setMaxRedirectTime] = useState(0);
 
     useEffect(() => {
         const handleBeforeUnload = (e: BeforeUnloadEvent) => {
@@ -54,25 +46,45 @@ export default function Quiz() {
                 return '';
             }
         };
-
         window.addEventListener('beforeunload', handleBeforeUnload);
-        return () => {
-            window.removeEventListener('beforeunload', handleBeforeUnload);
-        };
+        return () => {window.removeEventListener('beforeunload', handleBeforeUnload);};
     }, [open, finished]);
 
     function handleAnswer(correct: boolean, userAnswer: any) {
+        const delay = correct ? 2000 : 2500;
+        const seconds = delay / 1000;
+
+        setLocked(true);
+        setRedirectTimer(seconds);
+        setMaxRedirectTime(seconds);
+
         if (correct) {
             setScore(score + 1);
-            nextQuestion();
+            setFeedback('Resposta correta!');
         } else {
-            if (attempts + 1 >= MAX_ATTEMPTS) {
-                nextQuestion();
-            } else {
-                setAttempts(attempts + 1);
+            const nextAttempt = attempts + 1;
+            if (nextAttempt >= MAX_ATTEMPTS) {
                 setFeedback(generateFeedback(perguntas[index], userAnswer));
+            } else {
+                setAttempts(nextAttempt);
+                setFeedback('Resposta incorreta. Tente novamente.');
+                setLocked(false);
+                setRedirectTimer(0);
+                setMaxRedirectTime(0);
+                return;
             }
         }
+
+        const interval = setInterval(() => {
+            setRedirectTimer((prev) => {
+                if (prev <= 1) {
+                    clearInterval(interval);
+                    nextQuestion();
+                    return 0;
+                }
+                return prev - 1;
+            });
+        }, 1000);
     }
 
     function generateFeedback(question: Perguntas, userAnswer: any): string {
@@ -102,12 +114,9 @@ export default function Quiz() {
     function nextQuestion() {
         setFeedback(null);
         setAttempts(0);
-
-        if (index + 1 === perguntas.length) {
-            setFinished(true);
-        } else {
-            setIndex(index + 1);
-        }
+        setLocked(false);
+        if (index + 1 === perguntas.length) {setFinished(true);} 
+        else {setIndex(index + 1);}
     }
 
     function handleOpen() {
@@ -116,18 +125,15 @@ export default function Quiz() {
         setFinished(false);
         setAttempts(0);
         setFeedback(null);
+        setLocked(false);
         setOpen(true);
     }
 
-    function handleClose() {
-        setOpen(false);
-    }
+    function handleClose() {setOpen(false);}
 
     function handleCloseWithConfirmation() {
         const confirmExit = window.confirm('Tem certeza que deseja sair? Seu progresso será perdido.');
-        if (confirmExit) {
-            handleClose();
-        }
+        if (confirmExit) { handleClose(); }
     }
 
     function handleRestart() {
@@ -136,18 +142,35 @@ export default function Quiz() {
         setFinished(false);
         setAttempts(0);
         setFeedback(null);
+        setLocked(false);
     }
 
     return (
-        <section className="container">
+        <section className="container my-3">
             <h2 className="fs-2 text-center">Pronto para testar o que aprendeu?</h2>
             <p className="text-center">
                 Clique no botão abaixo e responda 3 perguntas sobre tudo o que já foi apresentado nesse projeto
             </p>
+            <h3 className="fs-3">Informações</h3>
+            <ul className='text-white'>
+                <li>Você terá 3 tentativas por pergunta</li>
+                <li>As respostas só podem ser enviadas uma vez</li>
+                <li>O teste <strong>não pode</strong> ser interrompido, caso saia seu progresso será perdido</li>
+                <li>As perguntas consistem em:
+                    <ul>
+                        <li>Múltipla Escolha - 1 correta</li>
+                        <li>Múltipla Escolha - Mais de 1 correta</li>
+                        <li>Combobox</li>
+                    </ul>
 
-            <button type="button" className="btn btn-primary" onClick={handleOpen}>
-                Jogar
-            </button>
+                </li>
+            </ul>
+            <div className="text-center">
+
+                <button type="button" className="btn btn__primary" onClick={handleOpen}>
+                    Jogar
+                </button>
+            </div>
 
             {/* QUIZ MODAL */}
             <Modal
@@ -157,22 +180,36 @@ export default function Quiz() {
                 aria-describedby="modal-description"
                 disableEscapeKeyDown
             >
-                <Box sx={style}>
+                <Box className='modal__quiz'>
                     <h2 id="modal-title">Quiz</h2>
-                    <p>
+                    <p className='modal-info'>
                         Pergunta {index + 1} de {perguntas.length} | Tentativa {attempts + 1} de {MAX_ATTEMPTS}
                     </p>
 
                     <QuestionCard
                         question={perguntas[index]}
                         onAnswer={(correct, userAnswer) => handleAnswer(correct, userAnswer)}
+                        disabled={locked}
                     />
 
+
                     {feedback && (
-                        <div style={{ marginTop: '1rem', color: 'red', whiteSpace: 'pre-line' }}>
+                        <div style={{ marginTop: '1rem', whiteSpace: 'pre-line' }}>
                             {feedback}
                         </div>
                     )}
+                    {locked && redirectTimer > 0 && (
+                        <div style={{ marginTop: '1rem' }}>
+                            <LinearProgress
+                                variant="determinate"
+                                value={((maxRedirectTime - redirectTimer) / maxRedirectTime) * 100}
+                            />
+                            <p>
+                                Avançando ...
+                            </p>
+                        </div>
+                    )}
+
 
                     <div style={{ marginTop: '1rem', textAlign: 'right' }}>
                         <button className="btn btn-danger" onClick={handleCloseWithConfirmation}>
@@ -193,10 +230,10 @@ export default function Quiz() {
                 aria-describedby="modal-congrats-description"
                 disableEscapeKeyDown
             >
-                <Box sx={style} textAlign="center">
+                <Box className='modal__quiz' textAlign="center">
                     <h2 id="modal-congrats-title">Parabéns!</h2>
-                    <p id="modal-congrats-description">Você terminou o quiz.</p>
-                    <p>
+                    <p className='modal-info' id="modal-congrats-description">Você terminou o quiz.</p>
+                    <p className='modal-info'>
                         Sua pontuação: {score} de {perguntas.length}
                     </p>
                     <button
