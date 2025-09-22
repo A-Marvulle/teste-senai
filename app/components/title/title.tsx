@@ -6,12 +6,19 @@ export default function Title() {
     const location = useLocation();
     const path = location.pathname.replace(/^\/+/, "");
 
-    const currentItem = menuItens.find(item => item.url === path);
-    const pageTitle = currentItem ? currentItem.nome : "Página não encontrada";
+    let pageTitle;
+
+    if (path === "mapa-site") {
+        pageTitle = "Mapa Site";
+    } else {
+        const currentItem = menuItens.find(item => item.url === path);
+        pageTitle = currentItem?.nome || "Página não encontrada";
+    }
+
 
     useEffect(() => {
-        document.title = pageTitle + ' - Teste Alfredo';
+        document.title = `${pageTitle} - Teste Alfredo`;
     }, [pageTitle]);
 
-    return null; 
+    return null;
 }
