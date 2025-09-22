@@ -1,6 +1,7 @@
 import {
   isRouteErrorResponse,
   Links,
+  NavLink,
   Meta,
   Outlet,
   Scripts,
@@ -19,6 +20,7 @@ import "./app.css";
 import Topo from "app/components/topo/topo";
 import Footer from "app/components/footer/footer"
 import Breadcrumb from 'app/components/bread/bread';
+import Title from 'app/components/title/title';
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -26,8 +28,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <link rel="icon" href="/favicon.png" />
         <Meta />
         <Links />
+        <Title />
       </head>
       <body>
         {children}
@@ -72,10 +76,20 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
     <>
       <Topo />
       <main>
-        <Breadcrumb titleOverride={message}/>
+        <Breadcrumb titleOverride={message} />
         <div className="container">
           <h2>{message}</h2>
           <p>{details}</p>
+          <p>
+            <NavLink className='btn btn-light' to='/' title='Home'>
+              Voltar ao ínicio
+            </NavLink>
+          </p>
+          <p>
+            <NavLink className='btn btn-light' to='/mapa-site' title='Mapa do Site'>
+              navegar
+            </NavLink>
+          </p>
           {stack && (
             <pre className="w-full p-4 overflow-x-auto">
               <code>{stack}</code>
