@@ -9,6 +9,6 @@
 @media (max-width: 768px) {
     .card__curiosidades:hover, .card__curiosidades {background: #333; outline: 1px solid var(--highlight-color); outline-offset: 5px; height: 100%;}
     .card__curiosidades:hover .card__icon, .card__curiosidades .card__icon {opacity: 1; position: static; transform: none; text-align: center;}
-    .card__curiosidades:hover .card__content, .card__curiosidades .card__content {position: relative;}
+    .card__curiosidades:hover .card__content, .card__curiosidades .card__content {position: relative; top: 0; left: 0; transform: none;}
 }
 /* ? FIM CURIOSIDADES */
