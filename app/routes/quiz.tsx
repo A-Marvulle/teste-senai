@@ -20,9 +20,9 @@ const perguntas: Perguntas[] = [
     },
     {
         type: 'combobox',
-        question: 'Qual tipo de serviço é o Spotify?',
-        options: ['Premium', 'Freemium', 'Free'],
-        correct: 'Freemium',
+        question: 'Qual Passo corresponde ao item "Playlist Criada"?',
+        options: ['1','2','3','4','5','6'],
+        correct: '4',
     },
 ];
 

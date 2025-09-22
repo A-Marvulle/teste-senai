@@ -1,1 +1,7 @@
-.modal__header {background: red;}
+.modal__quiz { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 400px; background: var(--secondary-color); padding: 16px; border-radius: 8px;}
+.modal__quiz select {width: 100%; padding: 8px; background: transparent; border-radius: 4px;}
+.modal__quiz option {background: var(--secondary-color);}
+.modal__quiz .modal-info {color: #000;}
+.modal__quiz h2, .modal__quiz h3 {color: var(--primary-color);}
+.modal__quiz h3 {font-size: 20px;}
+@media (max-width: 768px) {.modal__quiz {width: 300px; }}
