@@ -116,4 +116,4 @@ O projeto está hospedado na Vercel e pode ser acessado através do seguinte lin
    ```bash
    npm run dev
 
-Ele vera abrir em http://localhost:5173/
+Ele devera abrir em http://localhost:5173/
