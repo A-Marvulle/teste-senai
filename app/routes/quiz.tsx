@@ -21,7 +21,7 @@ const perguntas: Perguntas[] = [
     {
         type: 'combobox',
         question: 'Qual Passo corresponde ao item "Playlist Criada"?',
-        options: ['1','2','3','4','5','6'],
+        options: ['1', '2', '3', '4', '5', '6'],
         correct: '4',
     },
 ];
@@ -47,7 +47,7 @@ export default function Quiz() {
             }
         };
         window.addEventListener('beforeunload', handleBeforeUnload);
-        return () => {window.removeEventListener('beforeunload', handleBeforeUnload);};
+        return () => { window.removeEventListener('beforeunload', handleBeforeUnload); };
     }, [open, finished]);
 
     function handleAnswer(correct: boolean, userAnswer: any) {
@@ -115,8 +115,8 @@ export default function Quiz() {
         setFeedback(null);
         setAttempts(0);
         setLocked(false);
-        if (index + 1 === perguntas.length) {setFinished(true);} 
-        else {setIndex(index + 1);}
+        if (index + 1 === perguntas.length) { setFinished(true); }
+        else { setIndex(index + 1); }
     }
 
     function handleOpen() {
@@ -129,7 +129,7 @@ export default function Quiz() {
         setOpen(true);
     }
 
-    function handleClose() {setOpen(false);}
+    function handleClose() { setOpen(false); }
 
     function handleCloseWithConfirmation() {
         const confirmExit = window.confirm('Tem certeza que deseja sair? Seu progresso será perdido.');
@@ -194,7 +194,7 @@ export default function Quiz() {
 
 
                     {feedback && (
-                        <div style={{ marginTop: '1rem', whiteSpace: 'pre-line' }}>
+                        <div className={`mt-3 ${feedback.startsWith('Resposta correta') ? 'text-success' : 'text-danger'}`}>
                             {feedback}
                         </div>
                     )}
