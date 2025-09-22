@@ -14,7 +14,7 @@ const perguntas: Perguntas[] = [
     },
     {
         type: 'multipla',
-        question: 'Quais as lingaugens de programação utilizadas pelo aplicativo?',
+        question: 'Quais as linguagens de programação utilizadas pelo aplicativo?',
         options: ['Java', 'Python', 'C', 'C++', 'PHP'],
         correct: ['Python', 'Java', 'C', 'C++'],
     },
