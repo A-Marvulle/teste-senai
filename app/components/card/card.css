@@ -1,0 +1,14 @@
+/* ? CURIOSIDADES */
+.card__curiosidades {position: relative; background: var(--primary-color); padding: 16px; border-radius: 16px; height: 250px; overflow: hidden;}
+.card__curiosidades, .card__curiosidades * {transition: .3s;}
+.card__curiosidades .card__icon {font-size: 80px; color: #fff; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);}
+.card__curiosidades .card__content {position: absolute; top: -150%; left: 50%; transform: translateX(-50%); text-align: center;}
+.card__curiosidades:hover {background: #333; outline: 1px solid var(--highlight-color); outline-offset: 5px;}
+.card__curiosidades:hover .card__icon {opacity: 0;}
+.card__curiosidades:hover .card__content {top: 50%; left: 50%; transform: translate(-50%,-50%);}
+@media (max-width: 768px) {
+    .card__curiosidades:hover, .card__curiosidades {background: #333; outline: 1px solid var(--highlight-color); outline-offset: 5px; height: 100%;}
+    .card__curiosidades:hover .card__icon, .card__curiosidades .card__icon {opacity: 1; position: static; transform: none; text-align: center;}
+    .card__curiosidades:hover .card__content, .card__curiosidades .card__content {position: relative;}
+}
+/* ? FIM CURIOSIDADES */

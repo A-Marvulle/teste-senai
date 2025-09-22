@@ -11,7 +11,7 @@ export default function Contato() {
                         <a className="btn btn-light" href="https://github.com/A-Marvulle" target="_blank" rel="noopener noreferrer" title="GitHub">GitHub</a>
                     </div>
                     <div className="col-12 col-lg-6 p-3">
-                        <a className="btn btn-light" href="mailto:alfredo.marvulle@gmail.com" target="_blank" rel="noopener noreferrer" title="E-mail">alfredo.marvulle@gmail.com</a>
+                        <a className="btn btn-light" href="mailto:alfredo.marvulle@gmail.com" target="_blank" rel="noopener noreferrer" title="E-mail">alfredo.marvulle<span className="d-block d-lg-inline" >@gmail.com</span></a>
                     </div>
                     <div className="col-12 col-lg-6 p-3">
                         <a className="btn btn-light" href="https://www.linkedin.com/in/alfredoperesmarvulle-87920a1b7/" target="_blank" rel="noopener noreferrer" title="LinkedIn">LinkedIn</a>
