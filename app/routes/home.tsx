@@ -42,7 +42,7 @@ export default function Home() {
       {/* Curiosidades */}
       <section className="container">
         <h2 className="fs-2 text-center">Algumas Curiosidades Sobre o Aplicativo</h2>
-        <div className="d-flex flex-column flex-lg-row flex-lg-wrap justify-content-center">
+        <div className="d-flex flex-column flex-md-row flex-md-wrap justify-content-center">
           {curiosidades.map((curiosidade, index) => (
             <div key={index} className="col-12 col-md-6 p-3">
               <Card
