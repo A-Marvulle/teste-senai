@@ -16,7 +16,7 @@ export default function Home() {
         <div className="text-center">
           <h1 className="fs-1">Como criar uma playlist temática no Spotify</h1>
           <p>Neste projeto, você verá como criar uma playslist temática para o evento que precisar!</p>
-          <p>Esta página contem algumas informações sobre o aplicativo em si, após vem o passo a passo, e para finalizar, tem um quiz para testar o que foi aprendido!</p>
+          <p>Esta página contém algumas informações sobre o aplicativo em si, após vem o passo a passo, e, para finalizar, haverá um quiz para testar o que foi aprendido!</p>
         </div>
       </div>
       {/* SOBRE */}
@@ -53,7 +53,7 @@ export default function Home() {
             </div>
           ))}
         </div>
-        <p>Para efeito de curioside, se você é fã de Star Wars e abrir no computador verá uma mudança: o <span className="fst-italic">timer</span> da música se torna um Sabre de Luz, perceberá também que é possível clicar nele para trocar o tipo de Sabre.</p>
+        <p>Para efeito de curiosidade, se você é fã de Star Wars e o Spotify no computador verá uma mudança: o <span className="fst-italic">timer</span> da música se torna um Sabre de Luz. Ao clicar no Sabre de Luz, o modelo troca e ao avançar na música a lâmina do sabre aumenta de tamanho.</p>
       </section>
 
     </>

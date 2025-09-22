@@ -48,7 +48,7 @@ const steps = [
     },
     {
         label: 'Passo 04 - Playlist Criada',
-        description: 'Logo após criar, ela abrira automáticamente. Para adicionar músicas clique no botão Adicionar a esta playlist',
+        description: 'Logo após criar, ela abrirá automáticamente. Para adicionar músicas clique no botão Adicionar a esta playlist',
         imgContent: [
             {
                 image: passo04,
@@ -58,17 +58,17 @@ const steps = [
     },
     {
         label: 'Passo 05 - Adicionar Músicas',
-        description: 'Assim que clicar, abrira uma lista com algumas sugestões de músicas, pode clicar em adicionar, ou pesquisar uma música espeficifica.',
+        description: 'Assim que clicar, abrirá uma lista com algumas sugestões de músicas, clique em adicionar ou em Buscar para pesquisar uma música específica.',
         imgContent: [
             {
                 image: passo05,
-                caption: 'Para adicionar musica clique no sinal de adição, ao terminar de selecionar as múcias, basta clicar na seta superiora esquerda para voltar para a Playlist'
+                caption: 'Para adicionar músicas clique no sinal de adição, ao terminar de selecionar as músicas, basta clicar na seta superior esquerda para voltar para a Playlist'
             }
         ]
     },
     {
         label: 'Passo 06 - Finalizado',
-        description: 'Pronto! Assim que sair da tela, sua playlist esta pronta e com as suas músicas!',
+        description: 'Pronto! Assim que sair da tela, sua playlist está pronta e com as suas músicas!',
         imgContent: [
             {
                 image: passo06,
