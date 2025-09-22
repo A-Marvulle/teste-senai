@@ -72,7 +72,7 @@ const steps = [
         imgContent: [
             {
                 image: passo06,
-                caption: 'A Playlist se contra em Sua Biblioteca'
+                caption: 'A Playlist se encontra em Sua Biblioteca'
             }
         ]
     },
