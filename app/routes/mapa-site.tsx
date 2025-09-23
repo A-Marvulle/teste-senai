@@ -4,7 +4,7 @@ export default function MapaSite() {
     return (
         <>
             <section className="container">
-                <h2 className="fs-2 text-center">Navegue pelas site</h2>
+                <h2 className="fs-2 text-center">Navegue pelo site</h2>
                 <nav className='menu-mapa'>
                     <Menu />
                     <NavLink className='nav-link' to='/mapa-site' title='Mapa Site'>
